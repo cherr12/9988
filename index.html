@@ -4,59 +4,106 @@
 <head>
     <!-- 생략된 head 내용들... -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* 생략된 전역 스타일... */
+        /* Hero Section 스타일 */
 
         .hero-section {
-            position: relative;
-            padding: 50px 0 120px; /* 상, 하단 패딩 조정 */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 95vh; /* 높이 조정 */
-            text-align: center;
-            background-size: cover;
-            background-position: center;
+            position: relative; /* 추가: 상대적 위치 지정 */
+            text-align: center; /* 텍스트를 중앙으로 정렬 */
+            padding: 50px 0; /* 패딩을 추가하여 콘텐츠 주변에 공간을 만듭니다 */
+            color: white; /* 텍스트 색상 설정 */
+            display: flex; /* flexbox 레이아웃 시작 */
+            justify-content: center; /* 수평 정렬 */
+            align-items: center; /* 수직 정렬 */
+            height: 100vh; /* 뷰포트 높이의 100% */
+            justify-content: flex-start; /* 이 부분을 'center'에서 'flex-start'로 변경하여 콘텐츠를 상단에 고정합니다. */
+            padding-top: 120px; /* 상단 패딩을 추가하여 콘텐츠와 상단 사이에 공간을 만듭니다. */
+            /* 추가로, padding-bottom도 조정할 수 있습니다. */
+            height: 95vh; /* 예: 뷰포트 높이의 50% (원하는 높이로 조정) */
+            align-items: flex-start; /* 수직 방향에서 상단에 콘텐츠를 정렬 */
+            justify-content: center; /* 수평 방향에서 중앙에 콘텐츠를 정렬 */
+            padding-top: 30px; /* 상단 패딩 조정 (필요한 경우) */
+            background-size: cover; /* 배경 이미지 크기 조절 */
+            background-position: center; /* 배경 이미지 위치 조절 */
+    }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0; /* 위치를 상단으로 조정합니다. */
+            left: 0; /* 위치를 좌측으로 조정합니다. */
+            right: 0; /* 우측도 0으로 설정하여 전체 배경을 채우게 합니다. */
+            bottom: 0; /* 하단도 0으로 설정하여 전체 배경을 채우게 합니다. */
+            /* 그라데이션 배경 추가 */
+            background: linear-gradient(
+                to right, 
+                rgba(81, 219, 76, 0.8), /* 여기에는 시작 색상을 지정합니다. */
+                rgba(246, 233, 46, 0.8) /* 여기에는 끝 색상을 지정합니다. */
+            );
+        /* 필요에 따라 여기에 다른 CSS 속성 추가 */
+    }
+
+        .hero-section .display-4 {
+            font-weight: bold;
+        }
+
+        .hero-section .display-4, .hero-section .lead {
+            color: white; /* 흰색 텍스트로 대비를 높입니다. */
+            font-family: 'Noto Sans KR', sans-serif; /* 예를 들어, Noto Sans KR 같은 현대적인 글꼴을 사용할 수 있습니다. */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트에 그림자를 추가하여 가독성을 높입니다. */
         }
 
         .hero-section::before {
             content: "";
             position: absolute;
             z-index: -1;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to right, rgba(81, 219, 76, 0.8), rgba(246, 233, 46, 0.8));
+            top: -70%; /* 상단 위치 조정 */
+            left: 50%;
+            /* transform 속성을 통해 요소의 크기를 확대하고 위치를 중앙으로 조정합니다. */
+            /* scale 값을 조정하여 타원의 크기를 변경할 수 있습니다. */
+            transform: translate(-50%, -50%) scale(3); /* 위치 중앙 조정 및 크기 조정 */
+            width: 65%;
+            height: 105%;
+            background-color: rgb(48, 138, 48);
+            border-radius: 60%; /* 이 값을 통해 타원형 모양이 만들어집니다. */
+            overflow: hidden; /* 추가된 부분: 외부로 넘치는 부분을 숨깁니다. */
         }
 
-        .hero-section .display-4, .hero-section .lead {
-            font-family: 'Noto Sans KR', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
+        /* Button 스타일 복구 */
         .btn-white-outline {
-            /* 기존 스타일 유지하되 중복 정의 제거 */
-            /* ... */
+            color: #343a40; /* 글자색 복구 */
+            border-color: #ffffff; /* 테두리색은 흰색으로 유지 */
+            background-color: rgba(255, 255, 255, 0.468); /* 버튼의 배경색을 약간 변경합니다. */
+            padding: 20px 30px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0px 3px 5px 0px rgba(20, 115, 36, 0.4);
+            text-decoration: none;
+            min-width: 200px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
         }
 
         .btn-white-outline:hover {
-            /* ... */
+            background-color: #ffffff; /* 호버 상태의 배경색은 흰색으로 유지 */
+            color: #343a40; /* 호버 상태의 글자색은 원래 색상 유지 */
+            box-shadow: 0px 0px 10px 0px rgba(20, 115, 36, 0.4);
+            transform: scale(1.1);
         }
-
+        /* Button Container 스타일 */
         .button-container {
-            position: absolute; /* 상대적 위치에서 절대 위치로 변경 */
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: absolute; /* 위치를 절대값으로 설정합니다. */
+            bottom: -50px; /* 버튼 컨테이너를 hero 섹션 아래로 내립니다. 이 값은 조정이 필요할 수 있습니다. */
+            left: 50%; /* 가로 방향으로 중앙에 위치하도록 합니다. */
+            transform: translateX(-50%); /* 세밀한 가로 방향 위치 조정을 위해 사용합니다. */
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            padding: 20px;
-            z-index: 10;
-        }
+            bottom:120px; /* 이 값은 새로운 hero 섹션 높이에 따라 조정할 필요가 있습니다 */
+    }
     </style>
 </head>
 
@@ -68,33 +115,18 @@
         </div>
     </div>
 
-
-    <!-- Hero section 아래에 버튼을 포함하는 div를 배치합니다 -->
-    <div class="button-container"> <!-- 'button-container' 클래스를 추가했습니다. -->
-        <a href="#" onclick="loadPage('index1.html'); return false;">밴드 - 앱 문제 해결하기</a>
-        <a href="#" onclick="loadPage('index2.html'); return false;">저전력 기종 확인하기</a>
-        <a href="#" onclick="loadPage('index3.html'); return false;">손목닥터 9988 정보</a>
-        <a href="#" onclick="loadPage('index4.html'); return false;">손닥피플</a>
-        <a href="#" onclick="loadPage('index5.html'); return false;">유사 앱테크 추천</a>
-        <!-- 추가 콘텐츠 링크들... -->
+    <div class="container">
+        <div class="button-container">
+            <a href="https://blog.naver.com/ttlgold/223229193608?&isInf=true" class="btn btn-white-outline" role="button">밴드 - 앱 문제 해결하기</a>
+            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=36791064&memberNo=10551594&isInf=true" class="btn btn-white-outline" role="button">저전력 기종 확인하기</a>
+            <a href="https://blog.naver.com/lissom_design/223208105378" class="btn btn-white-outline" role="button">손목닥터 9988 정보</a>
+            <a href="https://blog.naver.com/lissom_design/223208105378" class="btn btn-white-outline" role="button">손닥피플</a>
+            <a href="https://blog.naver.com/lissom_design/223208105378" class="btn btn-white-outline" role="button">유사 앱테크 추천</a>
+        </div>
     </div>
 
-    <div id="page-content">
-        <!-- 여기에 동적 콘텐츠가 로드됩니다 -->
-      </div>
+    <!-- 생략된 스크립트 부분 -->
 
-      <script>
-        function loadPage(contentUrl) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("page-content").innerHTML = this.responseText;
-                }
-            };
-            xhr.open("GET", contentUrl, true);
-            xhr.send();
-        }
-    </script>
 </body>
 
 </html>
