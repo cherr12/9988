@@ -1,0 +1,19 @@
+{
+  "name": "손닥도감",
+  "short_name": "손닥도감",
+  "description": "손목닥터 9988 유저들을 위한 백과사전",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "categories": ["life"],
+  "screenshots": [],
+  "icons": [{
+		"src": "/icon-512x512.png",
+		"sizes": "512x512"
+	}],
+  "shortcuts": []
+}
